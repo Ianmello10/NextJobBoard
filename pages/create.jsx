@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <>
-      <h1>Cadastrar vagaa123</h1>
+      <h1>Cadastrar vagaa12453</h1>
 
       <form onSubmit={submitData}>
         <label htmlFor="titulo">Titulo</label>
