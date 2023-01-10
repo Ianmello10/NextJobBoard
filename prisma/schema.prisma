@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Vaga {
+  id          String        @id @default(cuid())
+  nomeEmpresa String         
+  local       String        
+  titulo      String         
+  descricao   String
+  habilidades Habilidades[]
+  expiredAt   DateTime      @default(now())
+}
+
+model Habilidades {
+  id    String @id @default(cuid())
+  nome  String
+  vagas Vaga[]
+}
