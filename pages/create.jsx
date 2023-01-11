@@ -1,6 +1,7 @@
 import { Inter } from "@next/font/google";
 import { Router } from "next/router";
 import { useState } from "react";
+import { MultiSelect } from "@mantine/core";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,39 +49,41 @@ export default function Home() {
           onChange={(e) => setTitulo(e.target.value)}
         />
 
-        <label  htmlFor="nomeEmpresa">Nome da empresa</label>
+        <label htmlFor="nomeEmpresa">Nome da empresa</label>
         <input
           name="nomeEmpresa"
           autoFocus
           onChange={(e) => setNomeEmpresa(e.target.value)}
         />
 
-        <label  htmlFor="local">Local:</label>
+        <label htmlFor="local">Local:</label>
         <input
           name="local"
           autoFocus
           onChange={(e) => setLocal(e.target.value)}
         />
 
-        <label  htmlFor="habilidades">Hab</label>
-        <select
-          multiple
-          name="habilidades"
+        <label htmlFor="habilidades">Hab</label>
+
+        <MultiSelect
+          data={[
+            "React",
+            "Angular",
+            "Svelte",
+            "Vue",
+            "Riot",
+            "Next.js",
+            "Blitz.js",
+          ]}
           value={habilidades}
-          onChange={(e) =>
-            setHabilidades(
-              Array.from(e.target.selectedOptions).map((option) => option.value)
-            )
-          }
-        >
-          <option value="teste1">teste 1</option>
-          <option value="teste2">teste 2</option>
-          <option value="teste3">teste 3</option>
-        </select>
+          onChange={setHabilidades}
+          label="Your favorite frameworks/libraries"
+          placeholder="Pick all that you like"
+          searchable
+          nothingFound="Nothing found"
+        />
 
-      
-
-        <label  htmlFor="descricao">Descricao</label>
+        <label htmlFor="descricao">Descricao</label>
 
         <input
           name="descricao"
