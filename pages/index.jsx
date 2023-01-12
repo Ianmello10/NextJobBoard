@@ -27,7 +27,7 @@ export default function Home(props) {
 
   return (
     <>
-      <h1>Job Board </h1>
+      <h1>Job Board 123</h1>
 
       {props.vagas.map((vaga) => (
         <div
